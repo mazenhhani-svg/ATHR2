@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>مختبر التركيبات العطرية الملكي</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,28 +44,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 55px 15px 25px 15px;
+      padding: 60px 12px 25px 12px;
     }
 
     .wrapper {
       position: relative;
       width: 100%;
-      max-width: 680px;
+      max-width: 720px;
       margin: auto;
     }
 
     /* إصلاح حركة اللوجو والتمركز */
     .logo-wrapper {
       position: absolute;
-      top: -55px;
+      top: -50px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 50;
     }
 
     .logo-container {
-      width: 100px;
-      height: 100px;
+      width: 95px;
+      height: 95px;
       border-radius: 50%;
       background: #0f0f13;
       border: 2px solid var(--gold-primary);
@@ -93,7 +93,7 @@
       background: var(--card-bg);
       border: 1px solid var(--border-gold);
       border-radius: 20px;
-      padding: 70px 30px 35px 30px;
+      padding: 65px 25px 30px 25px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.05);
       backdrop-filter: blur(10px);
       position: relative;
@@ -113,11 +113,11 @@
 
     .brand-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
     }
 
     .brand-title {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
       background: var(--gold-gradient);
       -webkit-background-clip: text;
@@ -134,19 +134,19 @@
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       position: relative;
     }
 
     label {
       display: block;
-      margin-bottom: 8px;
-      font-size: 0.88rem;
+      margin-bottom: 7px;
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--gold-light);
     }
@@ -187,7 +187,7 @@
     }
 
     .section-title {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--gold-light);
       font-weight: 700;
     }
@@ -202,6 +202,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
+      white-space: nowrap;
     }
 
     .btn-add-item:hover {
@@ -209,18 +210,20 @@
       color: #0a0a0c;
     }
 
-    /* معالجة الحاوية والجدول لإظهار القائمة بشكل صحيح */
+    /* معالجة الحاوية والجدول لإظهار القائمة بشكل صحيح وتجاوب الشاشات */
     .ingredients-table-wrapper {
       overflow: visible;
       margin-bottom: 20px;
       border: 1px solid rgba(212, 175, 55, 0.15);
       border-radius: 12px;
       background: var(--card-inner);
+      -webkit-overflow-scrolling: touch;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
+      min-width: 480px;
     }
 
     th, td {
@@ -289,10 +292,10 @@
       background: rgba(239, 68, 68, 0.2);
       border: 1px solid var(--error-color);
       color: #fca5a5;
-      padding: 6px 10px;
+      padding: 6px 12px;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       transition: all 0.2s ease;
     }
 
@@ -313,6 +316,7 @@
       background: rgba(255, 255, 255, 0.015);
       cursor: pointer;
       transition: all 0.3s ease;
+      text-align: center;
     }
 
     .file-drop-area:hover {
@@ -433,11 +437,88 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-    @media (max-width: 480px) {
-      .card { padding: 60px 18px 25px 18px; }
-      .logo-container { width: 85px; height: 85px; }
-      .logo-wrapper { top: -45px; }
-      .brand-title { font-size: 1.35rem; }
+    /* تعديلات التجاوب للشاشات الصغيرة والموبايل والتابلت */
+    @media (max-width: 600px) {
+      body {
+        padding: 50px 10px 20px 10px;
+      }
+
+      .card {
+        padding: 55px 15px 20px 15px;
+        border-radius: 16px;
+      }
+
+      .logo-container {
+        width: 80px;
+        height: 80px;
+      }
+
+      .logo-wrapper {
+        top: -40px;
+      }
+
+      .brand-title {
+        font-size: 1.25rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.78rem;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .ingredients-table-wrapper {
+        border: none;
+        background: transparent;
+        overflow: visible;
+      }
+
+      table, tbody, tr, td {
+        display: block;
+        width: 100%;
+        min-width: unset;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        background: var(--card-inner);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        padding: 12px;
+        position: relative;
+      }
+
+      td {
+        border-bottom: none;
+        padding: 6px 0;
+      }
+
+      td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.75rem;
+        color: var(--gold-light);
+        margin-bottom: 4px;
+        font-weight: 600;
+      }
+
+      td:last-child {
+        text-align: left;
+        margin-top: 5px;
+      }
+
+      .btn-delete-row {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+      }
     }
   </style>
 </head>
@@ -590,20 +671,20 @@
     const tr = document.createElement('tr');
     tr.id = rowId;
     tr.innerHTML = `
-      <td>
+      <td data-label="كود / اسم المكون">
         <div class="select-search-container">
           <input type="text" class="input-control item-search" placeholder="ابحث بكود أو اسم..." oninput="filterIngredients(this, '${rowId}')">
           <input type="hidden" class="item-code">
           <div class="search-results" id="results_${rowId}"></div>
         </div>
       </td>
-      <td>
+      <td data-label="وحدة القياس">
         <input type="text" class="input-control item-unit" list="unitsList" placeholder="الوحدة">
       </td>
-      <td>
+      <td data-label="الكمية">
         <input type="number" step="any" class="input-control item-amount" placeholder="الكمية" required>
       </td>
-      <td style="text-align: center;">
+      <td data-label="إجراء" style="text-align: center;">
         <button type="button" class="btn-delete-row" onclick="removeIngredientRow('${rowId}')">✕</button>
       </td>
     `;
